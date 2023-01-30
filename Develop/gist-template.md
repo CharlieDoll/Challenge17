@@ -20,6 +20,7 @@ RegEx Credit Card Code:
 - [Character Classes](#character-classes)
 - [Alternation](#alternation)
 - [The OR Operator](#the-or-operator)
+- [Backreferencing](#backreferencing)
 - [Flags](#flags)
 - [Character Escapes](#character-escapes)
 
@@ -42,11 +43,23 @@ The use of quantifiers denotes how many times a character, character class or gr
 
 In the code snippet above the quantifier used is ? and implies 'optional', so it states that a character may or may not appear.
 
-The code above also has a {N} quantifier, which is what is known as an interval quantifier. When appended after to a character or character class it specifies how many characters we want.
+The code above also has a {N} quantifier, which is what is known as an interval quantifier. When appended after a character or character class it specifies how many characters are required.
 
 ### Grouping Constructs
 
+It was previously mentioned how parentheses can be used to limit alternation, but if you also want to use a quantifier such as + or \* on more than one character at a time, then they can be grouped together using parentheses before appending a quantifier.
+
+In the code above this grouping construct has not been used.
+
 ### Bracket Expressions
+
+Curly brackets/ braces {} in RegEx are a quantifier that specifies the number of times a character preceding it can appear in the text or string. They can also specify a range, such as the number of times a character can appear.
+
+Square brackets (bracket expression) is a RegEx that matches a specific set of characters and can match a set of of multi character collating elements, which are based on a set of listed expressions within the square brackets.
+
+Parentheses () allow the user to read which characters were matched and is also useful for 'OR |" expressions.
+
+All 3 types of brackets have been used in the credit card code mentioned above. The culry brackets have been used to determine how many times a number can appear in the text or string and the range. The square brackets show the possible match options for the numbers, alongside the range. The parentheses show which characters were matched.
 
 ### Character Classes
 
@@ -58,16 +71,55 @@ The use of - bewteen the numbers is the range, so in the case of this code it is
 
 ### Alternation
 
+Alternation can be used to match a single expression out of serveral regular ones.
+
+The pipe symbol or 'OR' '|', is used to seperate options. However, this can be extended or expanded upon i.e. 1| 2| 3|.
+
+Alternation has the lowest precedence of all RegEx operators, as it tells the engine to match everything to eithe rthe left or the right of the pipe symbol. Using parantheses within the grouping will limit its reach.
+
+In the code above we can see the credit card code split in to serveral 'OR' sections ready for comparison.
+
+### The OR Operator
+
 Alternation can also be used to specify options. With alternation the pipe symbol | can be used to match subexpressions. Using | combines subexpressions, which are then called alternatives. The pipe symbol | also means 'or' so it can match various options.
 
 Through using | in the code above it allows the numbers in the code to be matched in various ways. Also, by using parentheses the reach of the alternation can be limited.
 
-### The OR Operator
+### Backreferencing
+
+Backreferencing also allows new patterns to be matched that are the same as a previous one. Parentheses can also be used in backreferencing, as it can remeber previously matched subexpressions.
+
+As there can be more than one captured group, a number is used to identify the parentheses i.e. \1. You start counting the parentheses from the left. In the code above the backreferencing is shown in the last section.
 
 ### Flags
 
+Flags are optional parameters which modify the searching behaviour of RegEx. Flags change the default search behaviour of the RegEx and makes it search differently.
+
+Flags/ Modifiers enable the use of advanced search features, such as case insensitive or global searching. They can be used collectively or individually.
+
+Flags were not used in the code snippet above.
+
 ### Character Escapes
+
+Characters in RegEx that have a special meaning, require an escape sequence prefix with a backslash e.g. (\+)
+
+Escape characters can be either inside or outside character class and have different rules depending on its location.
+
+1. [ Escaped outside the character class
+2. ] Close a character class
+3. \ Used inside and outside the character class, so it must always be escaped when it specifies a literal character.
+4. - Specifies character ranges inside a character class.
+5. ^ This needs to be escaped outside of a character class, as it anchors the ReGex.
+6. - Needs to be escaped as it is a zero or more quantifier.
+7. - Needs to be escaped as it is a one or more quantifier.
+8. ? Needs to be escaped as it is a zero or more quantifier.
+9. { Needs to be escaped since it represents the start of a range quantifier.
+10. } This character sometimes needs to be escaped as it represents the end of a range quantifier.
+
+All of these escape characters appear in the code above.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Charlie Nunn
+
+https://github.com/CharlieDoll/Challenge17
