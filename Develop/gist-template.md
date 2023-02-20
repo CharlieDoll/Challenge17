@@ -63,7 +63,7 @@ All 3 types of brackets have been used in the credit card code mentioned above. 
 
 ### Character Classes
 
-Character class is denoted by th euse of square brackets [] and is used to match several charcters in a particular position. The square brackets then have the characters you want matched listed inside them.
+Character class is denoted by the use of square brackets [] and is used to match several charcters in a particular position. The square brackets then have the characters you want matched listed inside them.
 
 In this code the numbers [0-9] are used to offer a possible match.
 
